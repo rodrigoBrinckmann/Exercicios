@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Questao5</name>
+    </assembly>
+    <members>
+        <member name="M:Questao5.Infrastructure.Services.Controllers.ContaCorrenteController.GetSaldoContaCorrente(System.String)">
+            <summary>
+            Consultar saldo da conta corrente
+            </summary>
+            <param name="contaNumero"></param>
+            <remarks>
+            https://localhost:7140/api/getsaldo/'contaNumero'
+            </remarks>
+            <returns>
+            Valida se conta está cadastrada
+            Valida se conta está ativa
+            Caso dados estejam válidos, retorna
+            •	Número da conta corrente
+            •	Nome do titular da conta corrente
+            •	Data e hora da resposta da consulta
+            •	Valor do Saldo atual
+            Caso dados inválidos, retorna Status Code 400
+            </returns>
+        </member>
+        <member name="M:Questao5.Infrastructure.Services.Controllers.ContaCorrenteController.MovimentaçãoContaCorrente(Questao5.Domain.Entities.MovimentacaoConta,System.String)">
+            <summary>
+            Fazer movimentações na conta corrente
+            </summary>
+            <param name="dadosMovimentacao"></param>
+            <remarks>
+            {"contaCorrente": "string", "tipoMovimento": "Crédito"/0 ou "Débito"/1,"valor": 0}        
+            </remarks>
+            <returns>
+            Valida se conta está cadastrada
+            Valida se conta está ativa
+            Valida valores passados,se são positivo
+            Valida se tipo de Movimento é 'Débito' ou 'Crédito'
+            Caso dados estejam válidos, retorna
+            •	Número do Id do Movimento gerado
+            Caso dados inválidos, retorna Status Code 400
+            Valida idempotência caso idempotencyKey enviada no Header já tenha sido utilizada - neste caso, retorna o número da transação
+            </returns>
+        </member>
+    </members>
+</doc>
